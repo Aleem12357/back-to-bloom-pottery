@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
 import BookingModal from './components/BookingModal';
+import IntroChatbot from './components/IntroChatbot';
 
 import Home from './pages/Home';
 import Workshops from './pages/Workshops';
@@ -84,8 +85,6 @@ export default function App() {
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        cartCount={cartCount}
-        openCart={() => setIsCartOpen(true)}
         onOpenBookingModal={() => handleOpenBookingWithWorkshop(WORKSHOPS[0])}
       />
 
@@ -146,6 +145,12 @@ export default function App() {
         onClose={() => setIsBookingModalOpen(false)}
         selectedWorkshop={selectedWorkshopForBooking}
         workshops={WORKSHOPS}
+      />
+
+      {/* Intro Studio AI Chatbot */}
+      <IntroChatbot
+        onOpenBookingModal={() => handleOpenBookingWithWorkshop(WORKSHOPS[0])}
+        onNavigate={setActiveTab}
       />
 
     </div>

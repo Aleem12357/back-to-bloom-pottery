@@ -26,6 +26,22 @@ export default function BookingModal({ isOpen, onClose, selectedWorkshop, worksh
     }
   };
 
+  const whatsappMessageText =
+    `Hello Back to Bloom Pottery! 🏺\n\n` +
+    `I would like to book a class session:\n` +
+    `🎨 Workshop: ${currentWorkshop.title}\n` +
+    `📅 Date: ${selectedDate}\n` +
+    `⏰ Time Slot: ${selectedTime}\n` +
+    `👥 Attendees: ${guests} ${guests > 1 ? 'people' : 'person'}\n` +
+    `💰 Total Amount: $${totalPrice}\n\n` +
+    `👤 Name: ${guestName || 'Guest'}\n` +
+    `📱 Phone: ${guestPhone}\n` +
+    `📧 Email: ${guestEmail}\n` +
+    (specialRequests ? `📝 Special Requests: ${specialRequests}\n` : '') +
+    `\nPlease confirm my booking spot!`;
+
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMessageText)}`;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setBookingConfirmed(true);
@@ -34,22 +50,14 @@ export default function BookingModal({ isOpen, onClose, selectedWorkshop, worksh
       spread: 80,
       origin: { y: 0.5 }
     });
+    // Send booking directly to WhatsApp
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleResetAndClose = () => {
     setBookingConfirmed(false);
     onClose();
   };
-
-  const whatsappMessage = encodeURIComponent(
-    `Hello Back to Bloom Pottery! I'd like to reserve a slot for:\n` +
-    `🎨 Workshop: ${currentWorkshop.title}\n` +
-    `📅 Date: ${selectedDate}\n` +
-    `⏰ Time: ${selectedTime}\n` +
-    `👥 Guests: ${guests}\n` +
-    `👤 Name: ${guestName || 'Guest'}\n` +
-    `📱 Phone: ${guestPhone}`
-  );
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-clay-950/70 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 animate-fade-in">
@@ -84,10 +92,12 @@ export default function BookingModal({ isOpen, onClose, selectedWorkshop, worksh
               </div>
 
               <div>
-                <span className="clay-badge text-xs mb-2 inline-block">Booking Confirmed!</span>
+                <span className="bg-emerald-100 text-emerald-800 text-xs px-3 py-1 rounded-full font-bold mb-2 inline-block">
+                  Booking Sent to WhatsApp!
+                </span>
                 <h4 className="text-2xl font-bold text-clay-900">We Can't Wait to Clay With You!</h4>
                 <p className="text-sm text-clay-600 max-w-md mx-auto mt-1">
-                  Your workshop slot is provisionally reserved. A confirmation note has been saved.
+                  Your booking request has been opened in WhatsApp. Click below if you need to re-open the message.
                 </p>
               </div>
 
@@ -120,13 +130,13 @@ export default function BookingModal({ isOpen, onClose, selectedWorkshop, worksh
               {/* Instant WhatsApp Send Action */}
               <div className="pt-2 flex flex-col sm:flex-row justify-center gap-3">
                 <a
-                  href={`https://wa.me/?text=${whatsappMessage}`}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                 >
                   <MessageCircle size={18} />
-                  <span>Send Confirmation on WhatsApp</span>
+                  <span>Open WhatsApp Chat</span>
                 </a>
                 <button
                   onClick={handleResetAndClose}
@@ -285,10 +295,10 @@ export default function BookingModal({ isOpen, onClose, selectedWorkshop, worksh
 
                 <button
                   type="submit"
-                  className="bg-clay-500 hover:bg-clay-600 text-white font-bold text-sm px-6 py-3 rounded-2xl shadow-md transition-all active:scale-95 flex items-center gap-2"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-md transition-all active:scale-95 flex items-center gap-2"
                 >
-                  <Sparkles size={16} />
-                  <span>Reserve Seat Now</span>
+                  <MessageCircle size={18} />
+                  <span>Book & Send to WhatsApp</span>
                 </button>
               </div>
 

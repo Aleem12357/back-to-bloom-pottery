@@ -19,17 +19,20 @@ export default function Footer({ setActiveTab }) {
 
           {/* Brand Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
+            <button 
+              onClick={() => handleNav('home')} 
+              className="flex items-center gap-3 group text-left cursor-pointer focus:outline-none"
+            >
               <img
                 src="/assets/logo.jpg"
                 alt="Back to Bloom Logo"
-                className="w-12 h-12 rounded-full border-2 border-clay-400 object-cover"
+                className="w-12 h-12 rounded-full border-2 border-clay-400 object-cover group-hover:scale-105 transition-transform cursor-pointer"
               />
               <div>
-                <h3 className="text-xl font-bold text-white tracking-wide">Back to Bloom</h3>
-                <p className="text-xs text-clay-300 font-semibold uppercase tracking-wider">Pottery & Creative Workshops</p>
+                <h3 className="text-xl font-bold text-white tracking-wide group-hover:text-clay-300 transition-colors cursor-pointer">Back to Bloom</h3>
+                <p className="text-xs text-clay-300 font-semibold uppercase tracking-wider cursor-pointer">Pottery & Creative Workshops</p>
               </div>
-            </div>
+            </button>
             <p className="text-sm text-clay-200/90 leading-relaxed">
               Step into our cozy studio and unleash your inner artist. We host hands-on pottery workshops, wheel throwing sessions, clay & wine nights, and craft bespoke ceramic pieces with love.
             </p>
@@ -38,7 +41,7 @@ export default function Footer({ setActiveTab }) {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-clay-800 hover:bg-clay-500 text-white flex items-center justify-center transition-transform hover:scale-110 shadow-sm"
+                className="w-10 h-10 rounded-full bg-clay-800 hover:bg-clay-500 text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm cursor-pointer"
                 aria-label="Instagram"
               >
                 <InstagramIcon className="w-5 h-5" />
@@ -47,7 +50,7 @@ export default function Footer({ setActiveTab }) {
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-clay-800 hover:bg-blue-600 text-white flex items-center justify-center transition-transform hover:scale-110 shadow-sm"
+                className="w-10 h-10 rounded-full bg-clay-800 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm cursor-pointer"
                 aria-label="Facebook"
               >
                 <FacebookIcon className="w-5 h-5" />
@@ -56,7 +59,7 @@ export default function Footer({ setActiveTab }) {
                 href="https://wa.me/?text=Hello%20Back%20to%20Bloom%20Pottery!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-clay-800 hover:bg-emerald-600 text-white flex items-center justify-center transition-transform hover:scale-110 shadow-sm"
+                className="w-10 h-10 rounded-full bg-clay-800 hover:bg-emerald-600 text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm cursor-pointer"
                 aria-label="WhatsApp"
               >
                 <Phone size={18} />
@@ -67,35 +70,35 @@ export default function Footer({ setActiveTab }) {
           {/* Quick Links */}
           <div className="space-y-3">
             <h4 className="text-base font-bold text-white uppercase tracking-wider text-clay-200">Explore</h4>
-            <ul className="space-y-2 text-sm text-clay-300 font-medium">
+            <ul className="space-y-2.5 text-sm text-clay-300 font-medium">
               <li>
-                <button onClick={() => handleNav('home')} className="hover:text-clay-300 transition-colors flex items-center gap-1.5">
-                  <Sparkles size={12} className="text-clay-400" /> Home & Overview
+                <button onClick={() => handleNav('home')} className="hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-2 cursor-pointer">
+                  <Sparkles size={13} className="text-clay-400" /> <span>Home & Overview</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('workshops')} className="hover:text-clay-300 transition-colors flex items-center gap-1.5">
-                  <Sparkles size={12} className="text-clay-400" /> Workshops & Schedules
+                <button onClick={() => handleNav('workshops')} className="hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-2 cursor-pointer">
+                  <Sparkles size={13} className="text-clay-400" /> <span>Workshops & Schedules</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('shop')} className="hover:text-clay-300 transition-colors flex items-center gap-1.5">
-                  <Sparkles size={12} className="text-clay-400" /> Handmade Ceramics Shop
+                <button onClick={() => handleNav('shop')} className="hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-2 cursor-pointer">
+                  <Sparkles size={13} className="text-clay-400" /> <span>Handmade Ceramics Shop</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('gallery')} className="hover:text-clay-300 transition-colors flex items-center gap-1.5">
-                  <Sparkles size={12} className="text-clay-400" /> Instagram Feed Gallery
+                <button onClick={() => handleNav('gallery')} className="hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-2 cursor-pointer">
+                  <Sparkles size={13} className="text-clay-400" /> <span>Instagram Feed Gallery</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('about')} className="hover:text-clay-300 transition-colors flex items-center gap-1.5">
-                  <Sparkles size={12} className="text-clay-400" /> About Our Studio
+                <button onClick={() => handleNav('about')} className="hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-2 cursor-pointer">
+                  <Sparkles size={13} className="text-clay-400" /> <span>About Our Studio</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('contact')} className="hover:text-clay-300 transition-colors flex items-center gap-1.5">
-                  <Sparkles size={12} className="text-clay-400" /> FAQ & Contact
+                <button onClick={() => handleNav('contact')} className="hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-2 cursor-pointer">
+                  <Sparkles size={13} className="text-clay-400" /> <span>FAQ & Contact</span>
                 </button>
               </li>
             </ul>
@@ -135,11 +138,11 @@ export default function Footer({ setActiveTab }) {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={18} className="text-clay-400 shrink-0" />
-                <a href="tel:+1234567890" className="hover:underline">+1 (555) 256-6625</a>
+                <a href="tel:+1234567890" className="hover:text-white hover:underline transition-colors cursor-pointer">+1 (555) 256-6625</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={18} className="text-clay-400 shrink-0" />
-                <a href="mailto:hello@backtobloom.com" className="hover:underline">hello@backtobloom.com</a>
+                <a href="mailto:hello@backtobloom.com" className="hover:text-white hover:underline transition-colors cursor-pointer">hello@backtobloom.com</a>
               </li>
             </ul>
           </div>
@@ -151,7 +154,7 @@ export default function Footer({ setActiveTab }) {
           <p>© {new Date().getFullYear()} Back to Bloom Pottery & Creative Workshops. All rights reserved.</p>
           <div className="flex items-center gap-1">
             <span>Made with</span>
-            <Heart size={14} className="text-rose-400 fill-rose-400" />
+            <Heart size={14} className="text-rose-400 fill-rose-400 animate-pulse" />
             <span>for clay lovers everywhere</span>
           </div>
         </div>
