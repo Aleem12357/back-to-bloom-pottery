@@ -15,7 +15,11 @@ import Contact from './pages/Contact';
 import { WORKSHOPS } from './data/workshops';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTabState] = useState(() => {
+    const hash = window.location.hash.replace('#', '');
+    return ['home', 'workshops', 'shop', 'gallery', 'about', 'contact'].includes(hash) ? hash : 'home';
+  });
+
   const [cartItems, setCartItems] = useState([
     {
       id: 'prod-1',
@@ -30,10 +34,30 @@ export default function App() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [selectedWorkshopForBooking, setSelectedWorkshopForBooking] = useState(WORKSHOPS[0]);
 
-  // Scroll to top on page tab switch
-  useEffect(() => {
+  // Handle Tab Switch & Sync Browser History
+  const setActiveTab = (tab, pushState = true) => {
+    setActiveTabState(tab);
+    if (pushState) {
+      const hash = '#' + tab;
+      if (window.location.hash !== hash) {
+        window.history.pushState({ tab }, '', hash);
+      }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [activeTab]);
+  };
+
+  // Listen to browser Back/Forward buttons (popstate)
+  useEffect(() => {
+    const handlePopState = () => {
+      const hash = window.location.hash.replace('#', '');
+      const validTab = ['home', 'workshops', 'shop', 'gallery', 'about', 'contact'].includes(hash) ? hash : 'home';
+      setActiveTabState(validTab);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
