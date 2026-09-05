@@ -83,13 +83,13 @@ export default function About({ onNavigate, onOpenBookingModal }) {
             <div className="relative group max-w-sm w-full">
               <div className="relative overflow-hidden rounded-3xl border-4 border-white shadow-2xl">
                 <img
-                  src="/assets/IMG_20260904_223444_166.jpg"
-                  alt="Elena Vance - Founder & Lead Instructor"
+                  src="/assets/ownerpic.jpg"
+                  alt="Eisha Nasim - Founder & Lead Instructor"
                   className="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-clay-950/75 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white space-y-0.5">
-                  <p className="font-extrabold text-lg sm:text-xl">Elena Vance</p>
+                  <p className="font-extrabold text-lg sm:text-xl">Eisha Nasim</p>
                   <p className="text-xs text-clay-200 font-medium">Studio Founder & Master Ceramicist</p>
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function About({ onNavigate, onOpenBookingModal }) {
               "Pottery isn't about perfection; it's about connecting your hands with nature."
             </h2>
             <p className="text-xs sm:text-sm text-clay-700 leading-relaxed font-medium">
-              Hi, I’m <strong>Elena Vance</strong>, founder of Back to Bloom Pottery Studio. With over 10 years of experience shaping clay on the wheel and firing high-temperature stoneware, my goal is to make ceramic art approachable, therapeutic, and deeply rewarding for everyone.
+              Hi, I’m <strong>Eisha Nasim</strong>, founder of Back to Bloom Pottery Studio. With over 10 years of experience shaping clay on the wheel and firing high-temperature stoneware, my goal is to make ceramic art approachable, therapeutic, and deeply rewarding for everyone.
             </p>
             <p className="text-xs sm:text-sm text-clay-700 leading-relaxed font-medium">
               I created Back to Bloom as a cozy sanctuary where students can step away from digital screens, feel the grounding warmth of natural clay, and celebrate every unique piece they craft.
@@ -133,7 +133,7 @@ export default function About({ onNavigate, onOpenBookingModal }) {
                 onClick={onOpenBookingModal}
                 className="bg-gradient-to-r from-clay-500 to-terracotta hover:from-clay-600 hover:to-terracotta/90 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer flex items-center gap-2"
               >
-                <span>Join a Class with Elena</span>
+                <span>Join a Class with Eisha</span>
                 <ArrowRight size={16} />
               </button>
             </div>
