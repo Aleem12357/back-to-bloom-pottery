@@ -98,7 +98,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-clay-50 text-clay-900 font-sans selection:bg-clay-200">
+    <div className="min-h-screen flex flex-col bg-clay-50 text-clay-900 font-sans selection:bg-clay-200 overflow-x-hidden w-full">
 
       {/* Top Banner Notice */}
       <div className="bg-clay-500 text-white text-[11px] font-bold py-1.5 px-4 text-center tracking-wide flex items-center justify-center gap-2">
